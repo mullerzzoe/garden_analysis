@@ -1,7 +1,7 @@
-name: "garden_analysis"
+name: garden_analysis
 output_dir: ../docs
 navbar:
-  title: "garden_analysis"
+  title: garden_analysis
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/mullerzzoe/garden_analysis
 output:
   workflowr::wflow_html:
     toc: yes
