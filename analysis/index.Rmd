@@ -8,4 +8,96 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+# Home Garden Case Study Analysis Index 
+
+## Literature Review on food garden biodiversity in the Global North
+
+**Write a literature review for home garden biodiversity** 
+
+- Outline questions about home garden biodiversity  
+
+- Use Google Scholar to find home garden literature
+
+  - Read through literature and summarize their introduction, hypotheses and goals, methodology, results, and conclusions 
+
+- Answer each question outlined in the introduction
+
+- Sources 
+
+**Preliminary data from a case study: How biodiverse is a home garden regarding plant life?**   
+
+- Use Shannon-Wiener Diversity Index  
+
+  - Calculate and graph species richness by year  
+
+  - Calculate and graph species evenness by year  
+
+  - Calculate Shannon-Wiener Diversity Index and graph by year 
+
+## Data Analysis on garden productivity
+
+**Introduction**
+
+- Summary of previous findings on garden productivity + motivation  
+
+- Outline major questions and hypotheses  
+
+  - What is the yield of this home garden?   
+
+  - How much of the nutritional need is met with this home garden?  
+
+  - What is the monetary value of the garden? 
+
+**Methods** 
+
+- Setting, garden size, etc. 
+
+- How were the data collected? 
+
+- How was nutritional yield estimated? 
+
+- How was the economic yield estimated? 
+
+- Data processing in R 
+
+**Analysis and Results**  
+
+- Process case study garden data  
+
+  - Upload garden data onto RStudio  
+
+    - Create graph to show yields over each year by crop
+
+    - Create graph to show yields over each year by crop family
+
+    - Create violin plot to show yield over time  
+
+    - Create line plot to show productivity over the year 
+
+- Collect nutritional data  
+
+  - Compile nutritional data into one data table  
+
+  - Join this to the original data set on RStudio  
+
+  - Analyze data to answer question: Does this home garden case study provide all the important nutrients to maintain a healthy diet?   
+
+    - Graphical analyses 
+
+- Collect economic data  
+
+  - Look at various supermarkets and collect data on prices of produce  
+
+  - Join this data with the home garden case study data  
+
+  - Analyze joint data  
+
+    - Create graph visualizing amount of savings by year and by crop family  
+
+**Conclusions**  
+
+- Answer major questions 
+
+- Outline future routes that should be taken for continued research  
+
+- Explore hypotheses and questions 
