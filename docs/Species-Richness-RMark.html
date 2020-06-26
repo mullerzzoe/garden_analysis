@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Zoe" />
+
+
+<title>Species Richness</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Species Richness</h1>
+<h4 class="author">Zoe</h4>
+<h4 class="date">6/24/2020</h4>
+
+</div>
+
+
+<p>#Species Richness Calculations</p>
+<p>The goal of this analysis is to calculate the species richness from our case study garden. Species richness is a measure of biodiversity that states how many different species are found in an ecosystem.</p>
+<p>To start, we made sure to load the necessary packages onto RStudio.</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(workflowr)</code></pre>
+<p>Once the necessary packages were loaded, we needed to access our data. There were two datasets used in this analysis, including the original harvest log, known as “Garden Data Full.csv” and a list of the crop families, listed as “crop_key.csv”. When we uploaded this data, we renamed it “garden.data.raw” and “crop.families” respectively. Additionally, we wanted to add a column onto the garden.data.raw that converted the weight in ounces to pounds.</p>
+<pre class="r"><code>garden.data.raw &lt;- read.csv(&quot;~/Documents/Garden Data Analysis/Garden Data Full.csv&quot;) %&gt;%
+  mutate(weight_llbs = weight_oz * 0.0625)
+crop.families &lt;- read.csv(&quot;~/Documents/Garden Data Analysis/crop_key.csv&quot;)</code></pre>
+<p>We now have both data sets in our environment, but we want to join these two into one, full data frame. To do this, we used the full_join function</p>
+<pre class="r"><code>garden.data.families &lt;- full_join(garden.data.raw, crop.families, by = NULL, 
+                                  copy = FALSE, suffix = c(&quot;.garden.data.raw&quot;, 
+                                                           &quot;.crop.families&quot;))</code></pre>
+<pre><code>## Joining, by = &quot;crop&quot;</code></pre>
+<p>The data sets have now been joined into one large data set that will be easier to work with. The only issue with this data set is that it is using the “count” variable as a character when we want it to be a numeric variable. Essentially, the calculations we want to use with count will not work unless we change the class type of this variable.</p>
+<pre class="r"><code>garden.data.families$count &lt;- as.numeric(garden.data.families$count)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>str(garden.data.families)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    2008 obs. of  13 variables:
+##  $ year       : int  2011 2011 2011 2011 2011 2011 2011 2011 2011 2011 ...
+##  $ month      : chr  &quot;April&quot; &quot;April&quot; &quot;May&quot; &quot;May&quot; ...
+##  $ date       : chr  &quot;4/28/11&quot; &quot;4/29/11&quot; &quot;5/1/11&quot; &quot;5/7/11&quot; ...
+##  $ week       : int  18 18 19 19 19 20 20 20 20 20 ...
+##  $ crop       : chr  &quot;Spinach&quot; &quot;Collards&quot; &quot;Spinach&quot; &quot;Radish&quot; ...
+##  $ variety    : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ weight_oz  : num  4 3.5 3.5 2 6 2.5 2.5 4.5 5.5 2.45 ...
+##  $ unit       : chr  &quot;oz&quot; &quot;oz&quot; &quot;oz&quot; &quot;oz&quot; ...
+##  $ count      : num  NA NA NA 5 NA 5 4 NA NA 4 ...
+##  $ notes      : chr  &quot;overwintered spinach; prob. 3rd or so harvest&quot; &quot;overwintered collards; 2nd harvest&quot; &quot;overwintered spinach &quot; &quot;first harvest!&quot; ...
+##  $ weight_llbs: num  0.25 0.219 0.219 0.125 0.375 ...
+##  $ X          : int  52 22 52 44 52 44 44 52 52 44 ...
+##  $ family     : chr  &quot;Amaranthaceae&quot; &quot;Brassicaceae &quot; &quot;Amaranthaceae&quot; &quot;Brassicaceae &quot; ...</code></pre>
+<p>The variable “count” is now numeric, which will make calculations easier. Now we can start calculations for species richness. We want to know the species richness by year, so first we should isolate each year.</p>
+<pre class="r"><code>crops.2011 &lt;- garden.data.families %&gt;%
+  group_by(year) %&gt;%
+  filter(year == 2011)
+
+crops.2012 &lt;- garden.data.families %&gt;%
+  group_by(year) %&gt;%
+  filter(year == 2012)
+
+crops.2013 &lt;- garden.data.families %&gt;%
+  group_by(year) %&gt;%
+  filter(year == 2013)</code></pre>
+<p>The years are now isolated so now we have to learn how many crops were planted each year. To do this, the years were made into factors and then summarized by crop. We will use 2011 as an example.</p>
+<pre class="r"><code>factor.2011 &lt;- factor(crops.2011$crop)
+summary(factor.2011)</code></pre>
+<pre><code>##           Anaheim pepper             Ancho pepper                  Arugula 
+##                       28                       32                       17 
+##              Beet greens                    Beets              Black beans 
+##                       20                       22                        2 
+##        Black raspberries             Blackberries              Blueberries 
+##                        3                        1                        3 
+##                 Broccoli          Brussel sprouts               Canteloupe 
+##                       15                       16                       10 
+##                  Carrots              Cauliflower          Cherry tomatoes 
+##                       36                        4                       44 
+##          Chinese cabbage                 Collards         Cubanelle pepper 
+##                        5                        6                       16 
+##                Cucumbers                 Eggplant                   Endive 
+##                       23                       11                       15 
+##                   Garlic              Green beans        Green black beans 
+##                        1                       19                        2 
+##              Green onion             Green pepper            Hidatsa beans 
+##                       19                       11                        1 
+##           Hot wax pepper                 Jalapeno                     Kale 
+##                       30                       31                       22 
+##                  Lettuce               Lima beans                 Potatoes 
+##                       28                        5                        6 
+##                   Radish              Red mustard               Red pepper 
+##                        6                       23                       11 
+##             Salad greens     Scarlet runner beans Speckled cranberry beans 
+##                        2                        1                        2 
+##                  Spinach          Sugar snap peas              Swiss chard 
+##                       27                       28                       36 
+##                 Tomatoes                 Zucchini 
+##                      120                       43</code></pre>
+<p>Based on this analysis, 2011 had 44 crop varieties. By doing the same analysis for each year, 2012 had 45 crop varieties and 2013 had 39 crop varieties. Knowing the values is helpful, but being able to visualize it is much more important.<br />
+In order to visualize this data, a separate data frame was formed that would then be used to make a graph.</p>
+<pre class="r"><code>year &lt;- c(&quot;2011&quot;, &quot;2012&quot;, &quot;2013&quot;)
+richness &lt;- c(&quot;44&quot;, &quot;45&quot;, &quot;39&quot;)
+
+richness.by.year &lt;- data.frame(year, richness)
+richness.by.year</code></pre>
+<pre><code>##   year richness
+## 1 2011       44
+## 2 2012       45
+## 3 2013       39</code></pre>
+<p>Finally, we have all the data in the correct format to make a graph. For this data, using a bar graph will be most useful for seeing the richness by year.</p>
+<pre class="r"><code>ggplot(richness.by.year, aes(x = year, y = richness)) + geom_col()</code></pre>
+<p><img src="Species-Richness-RMark_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
