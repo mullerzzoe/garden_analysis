@@ -32,7 +32,7 @@ editor_options:
 
   - Calculate and graph species evenness by year  
 
-  - [Calculate Shannon-Wiener Diversity Index and graph by year](Shannon-Index.html) 
+  - [Calculate Shannon-Wiener Diversity Index](Shannon-Index.html) 
 
 ## Data Analysis on garden productivity
 
