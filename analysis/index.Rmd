@@ -28,11 +28,11 @@ editor_options:
 
 - Use Shannon-Wiener Diversity Index  
 
-  - Calculate and graph species richness by year  
+  - [Calculate and graph species richness by year](Species-Richness-RMark.html)  
 
   - Calculate and graph species evenness by year  
 
-  - Calculate Shannon-Wiener Diversity Index and graph by year 
+  - [Calculate Shannon-Wiener Diversity Index and graph by year](Shannon-Index.html) 
 
 ## Data Analysis on garden productivity
 
