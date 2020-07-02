@@ -9,9 +9,9 @@ navbar:
     href: 
     menu: 
       - text: "Species Richness" 
-        href: species-richness-rmark.html
+        href: Species-Richness-RMark.html
       - text: "Shannon Index"
-        href: shannon-index.html
+        href: Shannon-Index.html
       - text: "Species Evenness" 
         href: 
   - text: Garden Arthropod Review 
@@ -34,5 +34,5 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: journal
     highlight: textmate
