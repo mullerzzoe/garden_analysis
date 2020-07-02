@@ -1,28 +1,29 @@
 name: garden_analysis
 output_dir: ../docs
 navbar:
-  title: garden_analysis
+  title: "Home Garden Research"
   left:
-  - text: Home
+  - text: "Home"
     href: index.html
-  - text: Home Garden Biodiversity Case Study 
-    href: 
+  - text: "Home Garden Biodiversity Case Study" 
+    href: dprep.html
     menu: 
       - text: "Species Richness" 
-        href: Species-Richness-RMark.html
+        href: dprep_Species-Richness-RMark.html
       - text: "Shannon Index"
-        href: Shannon-Index.html
+        href: dprep_Shannon-Index.html
       - text: "Species Evenness" 
         href: 
-  - text: Garden Arthropod Review 
-  - text: Garden Productivity
-    href: 
+  - text: "Garden Arthropod Review" 
+    href: dprep.html
+  - text: "Garden Productivity"
+    href: dprep.html 
     menu: 
       - text: "General Productivity" 
       - text: "Nutritional Productivity"
       - text: "Economic Productivity" 
-  - text: Conclusions 
-  - text: About
+  - text: "Conclusions" 
+  - text: "About"
     href: about.html
   - text: License
     href: license.html
