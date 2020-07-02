@@ -5,6 +5,23 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Home Garden Biodiversity Case Study 
+    href: 
+    menu: 
+      - text: "Species Richness" 
+        href: Species-Richness-RMark.html
+      - text: "Shannon Index"
+        href: Shannon-Index.html
+      - text: "Species Evenness" 
+        href: 
+  - text: Garden Arthropod Review 
+  - text: Garden Productivity
+    href: 
+    menu: 
+      - text: "General Productivity" 
+      - text: "Nutritional Productivity"
+      - text: "Economic Productivity" 
+  - text: Conclusions 
   - text: About
     href: about.html
   - text: License
@@ -17,5 +34,5 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: journal
     highlight: textmate
