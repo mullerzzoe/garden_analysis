@@ -1,12 +1,12 @@
 name: garden_analysis
 output_dir: ../docs
 navbar:
-  title: garden_analysis
+  title: "Home Garden Research"
   left:
-  - text: Home
+  - text: "Home"
     href: index.html
-  - text: Home Garden Biodiversity Case Study 
-    href: 
+  - text: "Home Garden Biodiversity Case Study" 
+    href: Species-Richness-RMark.html
     menu: 
       - text: "Species Richness" 
         href: Species-Richness-RMark.html
@@ -14,15 +14,15 @@ navbar:
         href: Shannon-Index.html
       - text: "Species Evenness" 
         href: 
-  - text: Garden Arthropod Review 
-  - text: Garden Productivity
+  - text: "Garden Arthropod Review" 
+  - text: "Garden Productivity"
     href: 
     menu: 
       - text: "General Productivity" 
       - text: "Nutritional Productivity"
       - text: "Economic Productivity" 
-  - text: Conclusions 
-  - text: About
+  - text: "Conclusions" 
+  - text: "About"
     href: about.html
   - text: License
     href: license.html
