@@ -6,17 +6,18 @@ navbar:
   - text: "Home"
     href: index.html
   - text: "Home Garden Biodiversity Case Study" 
-    href: Species-Richness-RMark.html
+    href: dprep.html
     menu: 
       - text: "Species Richness" 
-        href: Species-Richness-RMark.html
+        href: dprep_Species-Richness-RMark.html
       - text: "Shannon Index"
-        href: Shannon-Index.html
+        href: dprep_Shannon-Index.html
       - text: "Species Evenness" 
         href: 
   - text: "Garden Arthropod Review" 
+    href: dprep.html
   - text: "Garden Productivity"
-    href: 
+    href: dprep.html 
     menu: 
       - text: "General Productivity" 
       - text: "Nutritional Productivity"
