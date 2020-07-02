@@ -22,7 +22,8 @@ navbar:
       - text: "General Productivity" 
       - text: "Nutritional Productivity"
       - text: "Economic Productivity" 
-  - text: "Conclusions" 
+  - text: "Conclusions"
+    href: 
   - text: "About"
     href: about.html
   - text: License
