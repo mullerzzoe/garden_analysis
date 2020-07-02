@@ -6,18 +6,18 @@ navbar:
   - text: "Home"
     href: index.html
   - text: "Home Garden Biodiversity Case Study" 
-    href: dprep.html
+    href: 
     menu: 
       - text: "Species Richness" 
-        href: dprep_Species-Richness-RMark.html
+        href: Species-Richness-RMark.html
       - text: "Shannon Index"
-        href: dprep_Shannon-Index.html
+        href: Shannon-Index.html
       - text: "Species Evenness" 
         href: 
   - text: "Garden Arthropod Review" 
-    href: dprep.html
+    href: 
   - text: "Garden Productivity"
-    href: dprep.html 
+    href: 
     menu: 
       - text: "General Productivity" 
       - text: "Nutritional Productivity"
@@ -33,7 +33,7 @@ navbar:
     href: https://github.com/mullerzzoe/garden_analysis
 output:
   workflowr::wflow_html:
-    toc: yes
-    toc_float: yes
+    toc: true
+    toc_float: true
     theme: journal
     highlight: textmate
