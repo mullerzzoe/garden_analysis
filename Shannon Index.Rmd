@@ -1,0 +1,96 @@
+---
+title: "Shannon Index Calculations"
+author: "Zoe"
+date: "7/1/2020"
+output: html_document
+---
+
+In order to assess biodiversity of an ecosystem, the Shannon Wiener Biodiversity
+Index is often used by ecologists.  This simple formula takes proportions of the 
+individual plant abundance to the total plant abundance.  With this case study, 
+we used the weight of the harvested plants to calculate diversity.  This limits
+our study as some plants have more water content than other and will therefore
+be heavier.  Though this is a limited way of examining the diversity of the 
+gardens, it is th best way for us to calculate the Shannon index with the data 
+we have.  
+
+As always, we first needed to start our packages and upload our data. We also
+will join the data we have to make it easier to use.  
+
+```{r}
+library(dplyr)
+library(workflowr)
+
+garden.data.raw <- read.csv("~/Documents/Garden Data Analysis/Garden Data Full.csv") %>%
+  mutate(weight_llbs = weight_oz * 0.0625)
+crop.families <- read.csv("~/Documents/Garden Data Analysis/crop_key.csv")
+
+garden.data.families <- full_join(garden.data.raw, crop.families, by = NULL,
+                                  copy = FALSE, suffix = c(".garden.data.raw",
+                                                           ".crop.families"))
+garden.data.families$count <- as.numeric(garden.data.families$count)
+```
+
+Once the data is prepared, we began isolating the data by year to make it easier
+to calculate the Shannon Index by year. For this summary, we will look at 
+2011 only. 
+
+```{r}
+crops.2011 <- garden.data.families %>%
+  filter(year == 2011)
+```
+
+With the year isolated from the raw dataset, we also wanted to isolate the crops
+and the weight_llbs
+columns. To do this, we created a new data frame with only these columns. 
+
+```{r}
+factor.2011.crop <- crops.2011$crop
+factor.2011.weight_llbs <- crops.2011$weight_llbs
+crop.2011.weights <- data.frame(factor.2011.crop, factor.2011.weight_llbs)
+```
+
+With the necessary data now in an isolated format, we then wanted to sum the 
+weight_llbs for each crop species. Another data frame was generated with the 
+total_llbs by crop species.  
+
+```{r}
+total.2011.weights <- crop.2011.weights %>%
+  group_by(factor.2011.crop) %>%
+  summarize(total_llbs = sum(factor.2011.weight_llbs))
+```
+
+With the total weights for 2011 calculated, we wanted to get the total weight
+of all the crops together. This would allow us to calculate the proportions of 
+specific crop weight to total crop weight.  
+```{r}
+total.2011.weight.all.crop <- sum(factor.2011.weight_llbs)
+total.2011.weight.all.crop
+```
+
+With these calculations finished, we could begin using the Shannon Index. The
+formula for the Shannon Index is H' = -sum[pi(ln(pi))] where pi is the proportion
+of weight from individual crops by the total weight of the crops. 
+
+```{r}
+p.2011 <- total.2011.weights %>%
+  mutate(p = total_llbs / total.2011.weight.all.crop) %>%
+  mutate(ln = log(p)) %>%
+  mutate(pln = ln * p)
+H.2011 <- sum(p.2011$pln) * -1
+H.2011
+H.2012 <- 3.084806
+H.2013 <- 2.901443
+```
+
+The Shannon Index has now been calculated! Each value was put into a data table
+to best see the differences between the years.  
+```{r}
+years <- c("2011", "2012", "2013")
+shannon_index <- c(H.2011, H.2012, H.2013)
+shannon_index_all_years <- data.frame(years, shannon_index)
+shannon_index_all_years
+```
+
+High Shannon Index values like this indicates high diversity of the garden over 
+all three years. On the next page, the species evenness will be calculated. 
