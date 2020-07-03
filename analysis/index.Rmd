@@ -30,7 +30,7 @@ editor_options:
 
   - [Calculate and graph species richness by year](Species-Richness-RMark.html)  
 
-  - Calculate and graph species evenness by year  
+  - [Calculate and graph species evenness](Species-Evenness.html)  
 
   - [Calculate Shannon-Wiener Diversity Index](Shannon-Index.html) 
 
