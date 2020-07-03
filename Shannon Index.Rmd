@@ -12,7 +12,7 @@ we used the weight of the harvested plants to calculate diversity.  This limits
 our study as some plants have more water content than other and will therefore
 be heavier.  Though this is a limited way of examining the diversity of the 
 gardens, it is th best way for us to calculate the Shannon index with the data 
-we have.  
+collected.  
 
 As always, we first needed to start our packages and upload our data. We also
 will join the data we have to make it easier to use.  
