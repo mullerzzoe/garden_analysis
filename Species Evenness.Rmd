@@ -1,0 +1,59 @@
+---
+title: "Species Evenness"
+date: "7/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+With these calculations, we hope to calulate the species evenness over all three
+years of this case study garden. We already organized the data in the other two
+calculations, so to see the coding to organize the data, look to 
+[Species Richness](Species-Richness-Rmark.html) or [Shannon Index](Shannon-Index.html). Below are the data we need for this analysis. 
+
+```{r}
+library(dplyr)
+
+richness <- c("44", "44", "39")
+richness <- as.numeric(richness)
+years <- c("2011", "2012", "2013")
+H.2011 <- 3.042144
+H.2012 <- 3.084806
+H.2013 <- 2.901443
+shannon_index <- c(H.2011, H.2012, H.2013)
+```
+
+As with the Shannon Index calculations, these will be done by weight in llbs of
+the harvested crops. This is limited because harvested produce all have different
+weights. However, with the data available, this method will be the most accurate
+to the true species evenness of the garden. 
+
+As done on the other pages, we will keep the data isolated by year. In order 
+calculate evenness, we will use the following equation: 
+J = H' / lnS, where J is the species evenness, H' is the Shannon Index calulated 
+[here](Shannon-Index.html), and S is the species richness.  
+
+Luckily enough, we have already calculated the species richness and Shannon Index!
+All we have to do is plug these values into the equation. For refresher sake, 
+here is a table with the species richness and Shannon Index values. 
+
+```{r}
+J.prep <- data.frame(years, richness, shannon_index)
+J.prep
+```
+
+Now, we plug the values into the equation!
+
+```{r}
+species_evenness <- J.prep %>%
+  mutate(species.evenness = shannon_index / log(richness))
+species_evenness
+```
+Now the species evenness has been calculated! As seen in the table, the species
+evenness across the years is fairly similar. Because the digits are fairly close
+to one, this habitat is fairly even. If the values were 0, the garden would be 
+completely uneven. Happily, according to weights of the harvested crops, this
+garden was species even. 
+
