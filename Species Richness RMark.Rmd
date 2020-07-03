@@ -2,14 +2,14 @@
 title: "Species Richness"
 author: "Zoe"
 date: "6/24/2020"
-output: html_document
+output: 
+  html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Species Richness Calculations 
 
 The goal of this analysis is to calculate the species richness from our case study
 garden.  Species richness is a measure of biodiversity that states how many different
@@ -84,14 +84,14 @@ summary(factor.2011)
 ```
 
 Based on this analysis, 2011 had 44 crop varieties.  By doing the same analysis 
-for each year, 2012 had 45 crop varieties and 2013 had 39 crop varieties.  Knowing
+for each year, 2012 had 44 crop varieties and 2013 had 39 crop varieties.  Knowing
 the values is helpful, but being able to visualize it is much more important.  
 In order to visualize this data, a separate data frame was formed that would then
 be used to make a graph. 
 
 ```{r}
 year <- c("2011", "2012", "2013")
-richness <- c("44", "45", "39")
+richness <- c("44", "44", "39")
 
 richness.by.year <- data.frame(year, richness)
 richness.by.year
