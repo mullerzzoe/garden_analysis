@@ -1,6 +1,5 @@
 ---
 title: "Species Richness"
-author: "Zoe"
 date: "6/24/2020"
 output: 
   html_document
@@ -12,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 The goal of this analysis is to calculate the species richness from our case study
-garden.  Species richness is a measure of biodiversity that states how many different
+garden. Species richness is a measure of biodiversity that states how many different
 species are found in an ecosystem.  
 
 To start, we made sure to load the necessary packages onto RStudio.  
