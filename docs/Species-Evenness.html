@@ -376,7 +376,7 @@ summary {
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>richness &lt;- c(&quot;44&quot;, &quot;44&quot;, &quot;39&quot;)
+<pre class="r"><code>richness &lt;- c(&quot;26&quot;, &quot;25&quot;, &quot;25&quot;)
 richness &lt;- as.numeric(richness)
 years &lt;- c(&quot;2011&quot;, &quot;2012&quot;, &quot;2013&quot;)
 H.2011 &lt;- 3.042144
@@ -389,17 +389,17 @@ shannon_index &lt;- c(H.2011, H.2012, H.2013)</code></pre>
 <pre class="r"><code>J.prep &lt;- data.frame(years, richness, shannon_index)
 J.prep</code></pre>
 <pre><code>##   years richness shannon_index
-## 1  2011       44      3.042144
-## 2  2012       44      3.084806
-## 3  2013       39      2.901443</code></pre>
+## 1  2011       26      3.042144
+## 2  2012       25      3.084806
+## 3  2013       25      2.901443</code></pre>
 <p>Now, we plug the values into the equation!</p>
 <pre class="r"><code>species_evenness &lt;- J.prep %&gt;%
   mutate(species.evenness = shannon_index / log(richness))
 species_evenness</code></pre>
 <pre><code>##   years richness shannon_index species.evenness
-## 1  2011       44      3.042144        0.8039090
-## 2  2012       44      3.084806        0.8151827
-## 3  2013       39      2.901443        0.7919733</code></pre>
+## 1  2011       26      3.042144        0.9337182
+## 2  2012       25      3.084806        0.9583489
+## 3  2013       25      2.901443        0.9013839</code></pre>
 <p>Now the species evenness has been calculated! As seen in the table, the species evenness across the years is fairly similar. Because the digits are fairly close to one, this habitat is fairly even. If the values were 0, the garden would be completely uneven. Happily, according to weights of the harvested crops, this garden was species even.</p>
 
 
