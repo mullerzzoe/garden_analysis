@@ -15,7 +15,7 @@ species are found in an ecosystem.
 
 To start, we made sure to load the necessary packages onto RStudio.  
 
-``` {r}
+``` {r, results = 'hide'}
 library(dplyr)
 library(ggplot2)
 library(workflowr)
@@ -31,13 +31,13 @@ converted the weight in ounces to pounds.
 ```{r}
 garden.data.raw <- read.csv("~/Documents/Garden Data Analysis/Garden Data Full.csv") %>%
   mutate(weight_llbs = weight_oz * 0.0625)
-crop.families <- read.csv("~/Documents/Garden Data Analysis/crop_key.csv")
+crop.families <- read.csv("~/Documents/Garden Data Analysis/crop_key_species.csv")
 ```
 
 We now have both data sets in our environment, but we want to join these two into
 one, full data frame.  To do this, we used the full_join function 
 
-```{r}
+```{r, results = 'hide'}
 garden.data.families <- full_join(garden.data.raw, crop.families, by = NULL, 
                                   copy = FALSE, suffix = c(".garden.data.raw", 
                                                            ".crop.families"))
@@ -74,14 +74,14 @@ crops.2013 <- garden.data.families %>%
 
 The years are now isolated so now we have to learn how many crops were planted
 each year.  To do this, the years were made into factors and then summarized by 
-crop. We will use 2011 as an example.  
+the species. We will use 2011 as an example.  
 
 ```{r}
-factor.2011 <- factor(crops.2011$crop)
+factor.2011 <- factor(crops.2011$species)
 summary(factor.2011)
 ```
 
-Based on this analysis, 2011 had 44 crop varieties.  By doing the same analysis 
+Based on this analysis, 2011 had 26 crop varieties.  By doing the same analysis 
 for each year, 2012 had 44 crop varieties and 2013 had 39 crop varieties.  Knowing
 the values is helpful, but being able to visualize it is much more important.  
 In order to visualize this data, a separate data frame was formed that would then
@@ -89,7 +89,7 @@ be used to make a graph.
 
 ```{r}
 year <- c("2011", "2012", "2013")
-richness <- c("44", "44", "39")
+richness <- c("26", "25", "25")
 
 richness.by.year <- data.frame(year, richness)
 richness.by.year
