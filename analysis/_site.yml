@@ -13,7 +13,7 @@ navbar:
       - text: "Shannon Index"
         href: Shannon-Index.html
       - text: "Species Evenness" 
-        href: Species-Evenness.html
+        href: Species_Evenness.html
   - text: "Garden Arthropod Review" 
     href: 
   - text: "Garden Productivity"
