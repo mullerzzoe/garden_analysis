@@ -15,7 +15,7 @@ calculations, so to see the coding to organize the data, look to
 ```{r}
 library(dplyr)
 
-richness <- c("44", "44", "39")
+richness <- c("26", "25", "25")
 richness <- as.numeric(richness)
 years <- c("2011", "2012", "2013")
 H.2011 <- 3.042144
