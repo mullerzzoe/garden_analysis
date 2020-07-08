@@ -10,15 +10,16 @@ editor_options:
 
 # Home Garden Case Study Analysis Index 
 
-## Literature Review on food garden biodiversity in the Global North
+## Literature Review on food garden arthropod biodiversity in the Global North
 
 **Write a literature review for home garden biodiversity** 
 
-- Outline questions about home garden biodiversity  
+- Outline questions about home garden arthropod biodiversity  
 
 - Use Google Scholar to find home garden literature
 
-  - Read through literature and summarize their introduction, hypotheses and goals, methodology, results, and conclusions 
+  - Read through literature and summarize their introduction, hypotheses and 
+  goals, methodology, results, and conclusions 
 
 - Answer each question outlined in the introduction
 
@@ -42,37 +43,17 @@ editor_options:
 
 - Outline major questions and hypotheses  
 
-  - What is the yield of this home garden?   
+  - What is the yield of this home garden in lbs/acre?   
 
   - How much of the nutritional need is met with this home garden?  
 
   - What is the monetary value of the garden? 
 
-**Methods** 
-
-- Setting, garden size, etc. 
-
-- How were the data collected? 
-
-- How was nutritional yield estimated? 
-
-- How was the economic yield estimated? 
-
-- Data processing in R 
-
 **Analysis and Results**  
 
 - Process case study garden data  
 
-  - Upload garden data onto RStudio  
-
-    - Create graph to show yields over each year by crop
-
-    - Create graph to show yields over each year by crop family
-
-    - Create violin plot to show yield over time  
-
-    - Create line plot to show productivity over the year 
+  - [Productivity by lbs/acre](lbs-acre-calculations-.html)
 
 - Collect nutritional data  
 

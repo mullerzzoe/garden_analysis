@@ -297,7 +297,9 @@ $(document).ready(function () {
     <li>
       <a href="Shannon-Index.html">Shannon Index</a>
     </li>
-    <li class="dropdown-header">Species Evenness</li>
+    <li>
+      <a href="Species_Evenness.html">Species Evenness</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown-header">Garden Arthropod Review</li>
@@ -363,7 +365,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-03
+<strong>Last updated:</strong> 2020-07-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -394,22 +396,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistreed3cfba34e1ac5c420395186fb3051ad448306478targetblankd3cfba3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mullerzzoe/garden_analysis/tree/d3cfba34e1ac5c420395186fb3051ad448306478" target="_blank">d3cfba3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistree00d39f4e47ca1e63c17964b57e19aaabe8c3da34targetblank00d39f4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mullerzzoe/garden_analysis/tree/00d39f4e47ca1e63c17964b57e19aaabe8c3da34" target="_blank">00d39f4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistreed3cfba34e1ac5c420395186fb3051ad448306478targetblankd3cfba3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistree00d39f4e47ca1e63c17964b57e19aaabe8c3da34targetblank00d39f4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mullerzzoe/garden_analysis/tree/d3cfba34e1ac5c420395186fb3051ad448306478" target="_blank">d3cfba3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mullerzzoe/garden_analysis/tree/00d39f4e47ca1e63c17964b57e19aaabe8c3da34" target="_blank">00d39f4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
@@ -417,11 +420,15 @@ Untracked files:
     Untracked:  Shannon Index.R
     Untracked:  Species Evenness Calculations.R
     Untracked:  Species Richness.R
+    Untracked:  lbs:acre calculations.R
     Untracked:  site_libs/
     Untracked:  wflow.R
 
 Unstaged changes:
+    Deleted:    Shannon-Index.html
     Modified:   analysis/index.Rmd
+    Deleted:    lbs-acre-calculations-.html
+    Deleted:    lbs:acre calculations .Rmd
 
 </code></pre>
 <p>
@@ -460,6 +467,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mullerzzoe/garden_analysis/blob/ecbbdd8e2b8683ea952616de98dccd8ce5bd4f7a/analysis/index.Rmd" target="_blank">ecbbdd8</a>
+</td>
+<td>
+mullerzzoe
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+Added html to species evenness
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mullerzzoe/garden_analysis/ecbbdd8e2b8683ea952616de98dccd8ce5bd4f7a/docs/index.html" target="_blank">ecbbdd8</a>
+</td>
+<td>
+mullerzzoe
+</td>
+<td>
+2020-07-03
+</td>
+<td>
+Added html to species evenness
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -673,11 +714,11 @@ Start workflowr project.
 </div>
 <div id="home-garden-case-study-analysis-index" class="section level1">
 <h1>Home Garden Case Study Analysis Index</h1>
-<div id="literature-review-on-food-garden-biodiversity-in-the-global-north" class="section level2">
-<h2>Literature Review on food garden biodiversity in the Global North</h2>
+<div id="literature-review-on-food-garden-arthropod-biodiversity-in-the-global-north" class="section level2">
+<h2>Literature Review on food garden arthropod biodiversity in the Global North</h2>
 <p><strong>Write a literature review for home garden biodiversity</strong></p>
 <ul>
-<li><p>Outline questions about home garden biodiversity</p></li>
+<li><p>Outline questions about home garden arthropod biodiversity</p></li>
 <li><p>Use Google Scholar to find home garden literature</p>
 <ul>
 <li>Read through literature and summarize their introduction, hypotheses and goals, methodology, results, and conclusions</li>
@@ -702,30 +743,16 @@ Start workflowr project.
 <li><p>Summary of previous findings on garden productivity + motivation</p></li>
 <li><p>Outline major questions and hypotheses</p>
 <ul>
-<li><p>What is the yield of this home garden?</p></li>
+<li><p>What is the yield of this home garden in lbs/acre?</p></li>
 <li><p>How much of the nutritional need is met with this home garden?</p></li>
 <li><p>What is the monetary value of the garden?</p></li>
 </ul></li>
-</ul>
-<p><strong>Methods</strong></p>
-<ul>
-<li><p>Setting, garden size, etc.</p></li>
-<li><p>How were the data collected?</p></li>
-<li><p>How was nutritional yield estimated?</p></li>
-<li><p>How was the economic yield estimated?</p></li>
-<li><p>Data processing in R</p></li>
 </ul>
 <p><strong>Analysis and Results</strong></p>
 <ul>
 <li><p>Process case study garden data</p>
 <ul>
-<li><p>Upload garden data onto RStudio</p>
-<ul>
-<li><p>Create graph to show yields over each year by crop</p></li>
-<li><p>Create graph to show yields over each year by crop family</p></li>
-<li><p>Create violin plot to show yield over time</p></li>
-<li><p>Create line plot to show productivity over the year</p></li>
-</ul></li>
+<li><a href="lbs-acre-calculations-.html">Productivity by lbs/acre</a></li>
 </ul></li>
 <li><p>Collect nutritional data</p>
 <ul>
