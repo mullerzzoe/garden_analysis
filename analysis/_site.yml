@@ -20,7 +20,7 @@ navbar:
     href: 
     menu: 
       - text: "General Productivity"
-      - href: lbs-acre-calculations-.html
+      - href: lbs_acre_calculations.html
       - text: "Nutritional Productivity"
       - text: "Economic Productivity" 
   - text: "Conclusions"
