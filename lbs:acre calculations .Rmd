@@ -1,0 +1,104 @@
+---
+title: 'Productivity Part 1: lbs/acre'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The goal of this analysis is to understand how productive our home garden case 
+study was. The home garden data went from 2011-2013 in a 600 square foot garden. 
+However, we estimate that about 325 square foot of that garden was actually in 
+production. For this first step of understanding productivity, we are analyzing 
+the harvest by pounds per acre. Let's begin! 
+
+First, we have to upload our packages. 
+
+```{r, results = 'hide'}
+library(dplyr)
+library(ggplot2)
+```
+
+Now, we have to upload our datasets and prepare them for analysis. 
+
+```{r}
+garden.data.raw <- read.csv("~/Documents/Garden Data Analysis/Garden Data Full.csv") %>%
+  mutate(weight_lbs = weight_oz * 0.0625)
+crop_key_species <- read.csv("~/Documents/Garden Data Analysis/crop_key_species.csv")
+garden.data.species <- inner_join(garden.data.raw, crop_key_species, by = NULL,
+                                  copy = FALSE, suffix = c(".garden.data.raw",
+                                                           ".crop_key_species"))
+```
+
+With the data set now available and ready, we want to create a few easy conversion
+variables to use. We want everything in terms of acres, so we need to convert the
+amount of land in square feet to acres. We will do this for both the total land 
+and the productive land. 
+
+```{r}
+a <- 600 * 2.29568411 * 10^-5
+b <- 325 * 2.29568411 * 10^-5
+```
+
+Now we can calculate lbs/acre. To do this, we will add an additional column to 
+our data using mutate(). 
+
+```{r}
+acre_all_year <- garden.data.species %>%
+  mutate(lbs_acre = weight_lbs * a) %>%
+  mutate(product_acre = weight_lbs * b)
+```
+
+We now have all our necessary data in one place, but our 'year' column is classified
+as an integer when we need it to be a character. Luckily, this change is fairly 
+easy to make. 
+
+```{r}
+acre_all_year$year <- as.character.Date(acre_all_year$year)
+```
+
+With these columns added, one for the total area of the garden and one for the 
+productive part of the garden, and the year classified properly, we can make 
+violin plots to show productivity in lbs/acre per year for total area. 
+
+```{r}
+ggplot(acre_all_year, aes(x = year, y = lbs_acre)) + geom_violin() + 
+  scale_y_log10()
+```
+
+We can also make one to show just the productive part of the garden. 
+
+```{r}
+ggplot(acre_all_year, aes(x = year, y = product_acre)) + geom_violin() + 
+  scale_y_log10()
+```
+
+With two violin plots showing our yearly productivity, we can also look at the 
+productivity by family. 
+
+```{r}
+ggplot(acre_all_year, aes(x = year, y = lbs_acre, fill = family, 
+                          color = family)) + geom_col()
+```
+
+We can see that by weight, family Solanaceae was the most productive! However, 
+which crop of family Solanaceae was the more productive? By isolating the family, 
+we can find out! 
+
+```{r}
+solanaceae <- acre_all_year %>%
+  filter(family == "Solanaceae")
+
+ggplot(solanaceae, aes(x = year, y = lbs_acre, fill = species, 
+                       color = species)) + geom_col()
+```
+
+Based on this graph, species *Solanum lycopersicum* was the most productive 
+species in the garden. This species contains tomatoes, of which the case study 
+grew several varieties. Tomatoes were the most productive crop by weight probably
+because of their high water content, making them quite heavy. Based on this 
+analysis,tomatoes were the most productive crop by lbs/acre. 
+
+
+
