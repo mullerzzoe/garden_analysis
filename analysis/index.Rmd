@@ -53,7 +53,7 @@ editor_options:
 
 - Process case study garden data  
 
-  - [Productivity by lbs/acre](lbs-acre-calculations-.html)
+  - [Productivity by lbs/acre](lbs_acre_calculations.html)
 
 - Collect nutritional data  
 
