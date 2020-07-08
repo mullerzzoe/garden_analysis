@@ -19,7 +19,8 @@ navbar:
   - text: "Garden Productivity"
     href: 
     menu: 
-      - text: "General Productivity" 
+      - text: "General Productivity"
+      - href: lbs-acre-calculations-.html
       - text: "Nutritional Productivity"
       - text: "Economic Productivity" 
   - text: "Conclusions"
