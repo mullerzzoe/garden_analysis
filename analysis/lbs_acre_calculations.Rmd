@@ -15,14 +15,14 @@ the harvest by pounds per acre. Let's begin!
 
 First, we will upload our packages. 
 
-```{r package upload, results = 'hide'}
+```{r package upload, message = FALSE}
 library(dplyr)
 library(ggplot2)
 ```
 
 Now, we have to upload our datasets and prepare them for analysis. 
 
-```{r data upload}
+```{r data upload, message = FALSE}
 garden.data.raw <- read.csv("~/Documents/Garden Data Analysis/Garden Data Full.csv") %>%
   mutate(weight_lbs = weight_oz * 0.0625)
 crop_key_species <- read.csv("~/Documents/Garden Data Analysis/crop_key_species.csv")
