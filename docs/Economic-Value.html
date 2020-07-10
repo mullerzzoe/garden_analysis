@@ -444,7 +444,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-09
+<strong>Last updated:</strong> 2020-07-10
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -468,7 +468,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -535,16 +535,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistree64290e04e1257e890322674ef56a4f2e0c559f60targetblank64290e0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mullerzzoe/garden_analysis/tree/64290e04e1257e890322674ef56a4f2e0c559f60" target="_blank">64290e0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistree2a73fa97217994ed67fe6fd95c1f3eecbb93875dtargetblank2a73fa9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mullerzzoe/garden_analysis/tree/2a73fa97217994ed67fe6fd95c1f3eecbb93875d" target="_blank">2a73fa9</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistree64290e04e1257e890322674ef56a4f2e0c559f60targetblank64290e0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommullerzzoegardenanalysistree2a73fa97217994ed67fe6fd95c1f3eecbb93875dtargetblank2a73fa9a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mullerzzoe/garden_analysis/tree/64290e04e1257e890322674ef56a4f2e0c559f60" target="_blank">64290e0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mullerzzoe/garden_analysis/tree/2a73fa97217994ed67fe6fd95c1f3eecbb93875d" target="_blank">2a73fa9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -559,7 +559,6 @@ Untracked files:
     Untracked:  Shannon Index.R
     Untracked:  Species Evenness Calculations.R
     Untracked:  Species Richness.R
-    Untracked:  analysis/Economic Value.Rmd
     Untracked:  analysis/Economic-Value.Rmd
     Untracked:  lbs:acre calculations.R
     Untracked:  site_libs/
@@ -567,6 +566,7 @@ Untracked files:
 
 Unstaged changes:
     Deleted:    Shannon-Index.html
+    Modified:   analysis/Economic Value.Rmd
     Deleted:    lbs-acre-calculations-.html
     Deleted:    lbs:acre calculations .Rmd
 
@@ -581,14 +581,57 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Economic Value.Rmd</code>) and HTML (<code>docs/Economic Value.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mullerzzoe/garden_analysis/blob/3e39ffabf4a080f0cb98ab27ff0ba5d71e079ec9/analysis/Economic Value.Rmd" target="_blank">3e39ffa</a>
+</td>
+<td>
+mullerzzoe
+</td>
+<td>
+2020-07-09
+</td>
+<td>
+Created economic value
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
-<p>In this analysis, we will assess the economic value of the crops grown in this home garden case study. All the economic data for this analysis was collected from 2020 even though the crops were harvested from 2011-2013. However, to make this analysis as relevant as possible, more current economic data will be used. All prices were found online from supermarkets like Wegmans, Walmart Grocery, and Whole Foods. Because the crops were organically grown, organic prices were used. Let’s begin!</p>
+<p>In this analysis, we will assess the economic value of the crops grown in this home garden case study. All the economic data for this analysis was collected from 2020 even though the crops were harvested from 2011-2013. However, to make this analysis as relevant as possible, more current economic data will be used. All prices were found online from supermarkets including Wegmans, WalmartFood, and Amazon Pantry. Each of these crops were priced by pound for both organic and conventional prices. For those crops that could not be found in organic and conventional varieties, a average of all the organic to conventional crop ratios was taken and used to estimate the price of whichever crop type we did not have. Because the crops were organically grown, organic prices were used. Let’s begin!</p>
 <p>First, we have to upload our packages.</p>
 <pre class="r"><code>library(dplyr)
 library(ggplot2)</code></pre>
@@ -601,42 +644,57 @@ garden.data.species &lt;- inner_join(garden.data.raw, crop_key, by = NULL,
                                   copy = FALSE, suffix = c(&quot;.garden.data.raw&quot;,
                                                            &quot;.crop_key&quot;))</code></pre>
 <p>The data needed for analysis is now uploaded, but we need to organize it in a way that makes it usable. We need to group all the species data together and calculate the total pounds of each species per year. We can also calculate the price of the yield with the economic data we have.</p>
-<pre class="r"><code>total_lbs_species_yield &lt;- garden.data.species %&gt;%
-  mutate(yield = weight_lbs * price_pound) %&gt;%
-  group_by(year, species, family) %&gt;%
-  summarize(total_lbs = sum(yield))</code></pre>
-<p>With the economic yield calculated and summarized by year and species, we can begin graphing this data. We will start by looking at the economic yield by year.</p>
-<pre class="r"><code>total_lbs_species_yield$year &lt;- as.character.Date(total_lbs_species_yield$year)
-ggplot(total_lbs_species_yield, aes(x = year, y = total_lbs)) + geom_violin() +
-  scale_y_log10()</code></pre>
-<img src="figure/Economic%20Value.Rmd/violin_yield-1.png" width="672" style="display: block; margin: auto;" />
+<pre class="r"><code>garden.data.species$price_pound_conventional &lt;- as.numeric(garden.data.species$price_pound_conventional)
+
+total_lbs_species_yield &lt;- garden.data.species %&gt;%
+  mutate(yield_O = weight_lbs * price_pound_organic) %&gt;%
+  mutate(yield_conven = weight_lbs * price_pound_conventional) %&gt;%
+  group_by(year, species, family)
+
+lbs_species_yield &lt;- total_lbs_species_yield %&gt;%
+  summarize(total_lbs_con = sum(yield_conven), total_lbs_O = sum(yield_O)) </code></pre>
+<p>With the economic yield calculated and summarized by year and species, we can begin graphing this data. We will start by looking at the economic yield by year for the conventional crop prices.</p>
+<pre class="r"><code>lbs_species_yield$year &lt;- as.character.Date(lbs_species_yield$year)
+ggplot(lbs_species_yield, aes(x = year, y = total_lbs_con)) + 
+  geom_violin() + scale_y_log10()</code></pre>
+<img src="figure/Economic%20Value.Rmd/violin%20conventional-1.png" width="672" style="display: block; margin: auto;" />
 <div class="alert alert-warning">
 <strong>Warning!</strong> The custom <code>fig.path</code> you set was ignored by workflowr.
 </div>
-<p>Based on this plot, 2011 had the highest yield, but 2012 seems to have the most variability in price. Though this is interesting, we want to see how much money the entire garden made. To visualize this, we will make a data table.</p>
-<pre class="r"><code>total_yearly_yield &lt;- total_lbs_species_yield %&gt;%
+<p>We can also look to see how much value the crops hold as organic crops.</p>
+<pre class="r"><code>lbs_species_yield$year &lt;- as.character.Date(lbs_species_yield$year)
+ggplot(lbs_species_yield, aes(x = year, y = total_lbs_O)) + 
+  geom_violin() + scale_y_log10()</code></pre>
+<img src="figure/Economic%20Value.Rmd/violin%20organic-1.png" width="672" style="display: block; margin: auto;" />
+<div class="alert alert-warning">
+<strong>Warning!</strong> The custom <code>fig.path</code> you set was ignored by workflowr.
+</div>
+<p>We can also compare the organic versus the conventional prices. To visualize this, we will make a data table.</p>
+<pre class="r"><code>total_yearly_yield &lt;- lbs_species_yield %&gt;%
   group_by(year) %&gt;%
-  summarize(yearly_yield = sum(total_lbs))
+  summarize(yearly_yield_con = sum(total_lbs_con), 
+            yearly_yield_O = sum(total_lbs_O)) 
+
 total_yearly_yield</code></pre>
-<pre><code># A tibble: 3 x 2
-  year  yearly_yield
-  &lt;chr&gt;        &lt;dbl&gt;
-1 2011         1776.
-2 2012         1611.
-3 2013         1888.</code></pre>
-<p>Based on our data table, 2013 actually had the highest economic value of the crops, valued at $1,887.74! This home garden was sure worth a lot!</p>
-<p>We can also visualize this by family by year.</p>
-<pre class="r"><code>ggplot(total_lbs_species_yield, aes(x = year, y = total_lbs, fill = family, 
+<pre><code># A tibble: 3 x 3
+  year  yearly_yield_con yearly_yield_O
+  &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt;
+1 2011             1312.          1897.
+2 2012             1275.          1820.
+3 2013             1554.          2238.</code></pre>
+<p>Based on our data table, 2013 actually had the highest economic value of the crops, valued at $2,237.89 for organic produce! This home garden was sure worth a lot!</p>
+<p>We can also visualize this by family by year. We will do this with the organic yields as the crops were grown organically.</p>
+<pre class="r"><code>ggplot(lbs_species_yield, aes(x = year, y = total_lbs_O, fill = family, 
                                     color = family)) + geom_col()</code></pre>
 <img src="figure/Economic%20Value.Rmd/yield_family-1.png" width="672" style="display: block; margin: auto;" />
 <div class="alert alert-warning">
 <strong>Warning!</strong> The custom <code>fig.path</code> you set was ignored by workflowr.
 </div>
 <p>The family Solanaceae seems to have the greatest economic yield. We can further investigate this to see which crop species had the highest economic value.</p>
-<pre class="r"><code>solanaceae &lt;- total_lbs_species_yield %&gt;%
+<pre class="r"><code>solanaceae &lt;- lbs_species_yield %&gt;%
   filter(family == &quot;Solanaceae&quot;)
 
-ggplot(solanaceae, aes(x = year, y = total_lbs, fill = species, 
+ggplot(solanaceae, aes(x = year, y = total_lbs_O, fill = species, 
                        color = species)) + geom_col()</code></pre>
 <img src="figure/Economic%20Value.Rmd/species_yield-1.png" width="672" style="display: block; margin: auto;" />
 <div class="alert alert-warning">
@@ -671,16 +729,16 @@ other attached packages:
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.4.6     compiler_4.0.0   pillar_1.4.4     later_1.1.0.1   
  [5] git2r_0.27.1     workflowr_1.6.2  tools_4.0.0      digest_0.6.25   
- [9] evaluate_0.14    lifecycle_0.2.0  tibble_3.0.1     gtable_0.3.0    
+ [9] evaluate_0.14    tibble_3.0.1     lifecycle_0.2.0  gtable_0.3.0    
 [13] pkgconfig_2.0.3  rlang_0.4.6      cli_2.0.2        yaml_2.2.1      
 [17] xfun_0.14        withr_2.2.0      stringr_1.4.0    knitr_1.28      
 [21] fs_1.4.1         vctrs_0.3.0      rprojroot_1.3-2  grid_4.0.0      
 [25] tidyselect_1.1.0 glue_1.4.1       R6_2.4.1         fansi_0.4.1     
 [29] rmarkdown_2.2    purrr_0.3.4      farver_2.0.3     magrittr_1.5    
-[33] backports_1.1.7  scales_1.1.1     promises_1.1.0   ellipsis_0.3.1  
-[37] htmltools_0.4.0  assertthat_0.2.1 colorspace_1.4-1 httpuv_1.5.4    
-[41] labeling_0.3     utf8_1.1.4       stringi_1.4.6    munsell_0.5.0   
-[45] crayon_1.3.4    </code></pre>
+[33] whisker_0.4      backports_1.1.7  scales_1.1.1     promises_1.1.0  
+[37] ellipsis_0.3.1   htmltools_0.4.0  assertthat_0.2.1 colorspace_1.4-1
+[41] httpuv_1.5.4     labeling_0.3     utf8_1.1.4       stringi_1.4.6   
+[45] munsell_0.5.0    crayon_1.3.4    </code></pre>
 </div>
 
 

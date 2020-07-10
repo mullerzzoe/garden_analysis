@@ -11,9 +11,12 @@ In this analysis, we will assess the economic value of the crops grown in this
 home garden case study. All the economic data for this analysis was collected 
 from 2020 even though the crops were harvested from 2011-2013. However, to make 
 this analysis as relevant as possible, more current economic data will be used. 
-All prices were found online from supermarkets like Wegmans, Walmart Grocery,
-and Whole Foods. Because the crops were organically grown, organic prices were 
-used. Let's begin! 
+All prices were found online from supermarkets including Wegmans, WalmartFood, 
+and Amazon Pantry. Each of these crops were priced by pound for both organic and 
+conventional prices. For those crops that could not be found in organic and 
+conventional varieties, a average of all the organic to conventional crop ratios 
+was taken and used to estimate the price of whichever crop type we did not have.
+Because the crops were organically grown, organic prices were used. Let's begin! 
 
 First, we have to upload our packages. 
 
@@ -40,39 +43,56 @@ calculate the total pounds of each species per year. We can also calculate the
 price of the yield with the economic data we have. 
 
 ```{r $/lbs}
+garden.data.species$price_pound_conventional <- as.numeric(garden.data.species$price_pound_conventional)
+
 total_lbs_species_yield <- garden.data.species %>%
-  mutate(yield = weight_lbs * price_pound) %>%
-  group_by(year, species, family) %>%
-  summarize(total_lbs = sum(yield))
+  mutate(yield_O = weight_lbs * price_pound_organic) %>%
+  mutate(yield_conven = weight_lbs * price_pound_conventional) %>%
+  group_by(year, species, family)
+
+lbs_species_yield <- total_lbs_species_yield %>%
+  summarize(total_lbs_con = sum(yield_conven), total_lbs_O = sum(yield_O)) 
 ```
 
 With the economic yield calculated and summarized by year and species, we can 
-begin graphing this data. We will start by looking at the economic yield by year. 
+begin graphing this data. We will start by looking at the economic yield by year 
+for the conventional crop prices. 
 
-```{r violin_yield, warning = FALSE}
-total_lbs_species_yield$year <- as.character.Date(total_lbs_species_yield$year)
-ggplot(total_lbs_species_yield, aes(x = year, y = total_lbs)) + geom_violin() +
-  scale_y_log10()
+```{r violin conventional, warning = FALSE}
+lbs_species_yield$year <- as.character.Date(lbs_species_yield$year)
+ggplot(lbs_species_yield, aes(x = year, y = total_lbs_con)) + 
+  geom_violin() + scale_y_log10()
 ```
 
-Based on this plot, 2011 had the highest yield, but 2012 seems to have the most
-variability in price. Though this is interesting, we want to see how much money 
-the entire garden made. To visualize this, we will make a data table. 
+We can also look to see how much value the crops hold as organic crops. 
+
+```{r violin organic}
+lbs_species_yield$year <- as.character.Date(lbs_species_yield$year)
+ggplot(lbs_species_yield, aes(x = year, y = total_lbs_O)) + 
+  geom_violin() + scale_y_log10()
+```
+
+We can also compare the organic versus the conventional prices. To visualize 
+this, we will make a data table. 
 
 ```{r yearly_yield}
-total_yearly_yield <- total_lbs_species_yield %>%
+total_yearly_yield <- lbs_species_yield %>%
   group_by(year) %>%
-  summarize(yearly_yield = sum(total_lbs))
+  summarize(yearly_yield_con = sum(total_lbs_con), 
+            yearly_yield_O = sum(total_lbs_O)) 
+
 total_yearly_yield
 ```
 
 Based on our data table, 2013 actually had the highest economic value of the 
-crops, valued at $1,887.74! This home garden was sure worth a lot! 
+crops, valued at $2,237.89 for organic produce! This home garden was sure 
+worth a lot! 
 
-We can also visualize this by family by year. 
+We can also visualize this by family by year. We will do this with the organic 
+yields as the crops were grown organically.
 
 ```{r yield_family, warning = FALSE}
-ggplot(total_lbs_species_yield, aes(x = year, y = total_lbs, fill = family, 
+ggplot(lbs_species_yield, aes(x = year, y = total_lbs_O, fill = family, 
                                     color = family)) + geom_col()
 ```
 
@@ -80,10 +100,10 @@ The family Solanaceae seems to have the greatest economic yield. We can further
 investigate this to see which crop species had the highest economic value. 
 
 ```{r species_yield, warning = FALSE}
-solanaceae <- total_lbs_species_yield %>%
+solanaceae <- lbs_species_yield %>%
   filter(family == "Solanaceae")
 
-ggplot(solanaceae, aes(x = year, y = total_lbs, fill = species, 
+ggplot(solanaceae, aes(x = year, y = total_lbs_O, fill = species, 
                        color = species)) + geom_col()
 ```
 
