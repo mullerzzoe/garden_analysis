@@ -22,7 +22,8 @@ navbar:
       - text: "General Productivity"
       - href: lbs_acre_calculations.html
       - text: "Nutritional Productivity"
-      - text: "Economic Productivity" 
+      - text: "Economic Productivity"
+      - href: Economic-Value.html
   - text: "Conclusions"
     href: 
   - text: "About"
@@ -36,6 +37,6 @@ navbar:
 output:
   workflowr::wflow_html:
     toc: true
-    toc_float: true
-    theme: journal
+    toc_float: false
+    theme: cosmo
     highlight: textmate
