@@ -1,0 +1,92 @@
+---
+title: "Economic Value"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this analysis, we will assess the economic value of the crops grown in this
+home garden case study. All the economic data for this analysis was collected 
+from 2020 even though the crops were harvested from 2011-2013. However, to make 
+this analysis as relevant as possible, more current economic data will be used. 
+All prices were found online from supermarkets like Wegmans, Walmart Grocery,
+and Whole Foods. Because the crops were organically grown, organic prices were 
+used. Let's begin! 
+
+First, we have to upload our packages. 
+
+```{r package upload, message = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+With our packages uploaded, we can now upload and join our data. 
+
+```{r data upload, message = FALSE}
+garden.data.raw <- read.csv("~/Documents/Garden Data Analysis/Garden Data Full.csv") %>%
+  mutate(weight_lbs = weight_oz * 0.0625)
+crop_key <- read.csv("~/Documents/Garden Data Analysis/crop_key_species_money.csv")
+
+garden.data.species <- inner_join(garden.data.raw, crop_key, by = NULL, 
+                                  copy = FALSE, suffix = c(".garden.data.raw",
+                                                           ".crop_key"))
+```
+
+The data needed for analysis is now uploaded, but we need to organize it in a 
+way that makes it usable. We need to group all the species data together and 
+calculate the total pounds of each species per year. We can also calculate the 
+price of the yield with the economic data we have. 
+
+```{r $/lbs}
+total_lbs_species_yield <- garden.data.species %>%
+  mutate(yield = weight_lbs * price_pound) %>%
+  group_by(year, species, family) %>%
+  summarize(total_lbs = sum(yield))
+```
+
+With the economic yield calculated and summarized by year and species, we can 
+begin graphing this data. We will start by looking at the economic yield by year. 
+
+```{r violin_yield, warning = FALSE}
+total_lbs_species_yield$year <- as.character.Date(total_lbs_species_yield$year)
+ggplot(total_lbs_species_yield, aes(x = year, y = total_lbs)) + geom_violin() +
+  scale_y_log10()
+```
+
+Based on this plot, 2011 had the highest yield, but 2012 seems to have the most
+variability in price. Though this is interesting, we want to see how much money 
+the entire garden made. To visualize this, we will make a data table. 
+
+```{r yearly_yield}
+total_yearly_yield <- total_lbs_species_yield %>%
+  group_by(year) %>%
+  summarize(yearly_yield = sum(total_lbs))
+total_yearly_yield
+```
+
+Based on our data table, 2013 actually had the highest economic value of the 
+crops, valued at $1,887.74! This home garden was sure worth a lot! 
+
+We can also visualize this by family by year. 
+
+```{r yield_family, warning = FALSE}
+ggplot(total_lbs_species_yield, aes(x = year, y = total_lbs, fill = family, 
+                                    color = family)) + geom_col()
+```
+
+The family Solanaceae seems to have the greatest economic yield. We can further 
+investigate this to see which crop species had the highest economic value. 
+
+```{r species_yield, warning = FALSE}
+solanaceae <- total_lbs_species_yield %>%
+  filter(family == "Solanaceae")
+
+ggplot(solanaceae, aes(x = year, y = total_lbs, fill = species, 
+                       color = species)) + geom_col()
+```
+
+Based on this data, *Solanum lycopersicum*, which includes all the tomato 
+varieties, was the most economically productive in the garden! 
+
