@@ -67,13 +67,7 @@ editor_options:
 
 - Collect economic data  
 
-  - Look at various supermarkets and collect data on prices of produce  
-
-  - Join this data with the home garden case study data  
-
-  - Analyze joint data  
-
-    - Create graph visualizing amount of savings by year and by crop family  
+  - [Economic Value](Economic-Value.html) 
 
 **Conclusions**  
 
