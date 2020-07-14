@@ -24,8 +24,6 @@ navbar:
       - text: "Nutritional Productivity"
       - text: "Economic Productivity"
       - href: Economic-Value.html
-  - text: "Conclusions"
-    href: 
   - text: "About"
     href: about.html
   - text: License
@@ -36,7 +34,7 @@ navbar:
     href: https://github.com/mullerzzoe/garden_analysis
 output:
   workflowr::wflow_html:
-    toc: true
-    toc_float: false
+    toc: yes
+    toc_float: yes
     theme: cosmo
     highlight: textmate
