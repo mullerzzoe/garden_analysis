@@ -58,7 +58,7 @@ With the economic yield calculated and summarized by year and species, we can
 begin graphing this data. We will start by looking at the economic yield by year 
 for the conventional crop prices. 
 
-```{r violin conventional, warning = FALSE}
+```{r violin conventional}
 lbs_species_yield$year <- as.character.Date(lbs_species_yield$year)
 ggplot(lbs_species_yield, aes(x = year, y = total_lbs_con)) + 
   geom_violin() + scale_y_log10()
@@ -91,7 +91,7 @@ worth a lot!
 We can also visualize this by family by year. We will do this with the organic 
 yields as the crops were grown organically.
 
-```{r yield_family, warning = FALSE}
+```{r yield_family}
 ggplot(lbs_species_yield, aes(x = year, y = total_lbs_O, fill = family, 
                                     color = family)) + geom_col()
 ```
@@ -99,7 +99,7 @@ ggplot(lbs_species_yield, aes(x = year, y = total_lbs_O, fill = family,
 The family Solanaceae seems to have the greatest economic yield. We can further 
 investigate this to see which crop species had the highest economic value. 
 
-```{r species_yield, warning = FALSE}
+```{r species_yield}
 solanaceae <- lbs_species_yield %>%
   filter(family == "Solanaceae")
 
